@@ -16,6 +16,7 @@ public static function server() {
 }
 /*End Server*/
 
+
 /*Session*/
 
 public static function loginAdmin() {
@@ -31,6 +32,11 @@ public static function login($email,$password) {
 }
 
 public static function checkLogin($cookie) {
+	
+	return self::curl('/api/session?'.$data,'GET',$cookie ,'',array());
+}
+
+public static function session($cookie) {
 	
 	return self::curl('/api/session?'.$data,'GET',$cookie ,'',array());
 }
