@@ -1,5 +1,5 @@
 <?php
-include('includePostLogin.php');
+include('incPostLogin.php');
 
 $deviceId = $_REQUEST['deviceId'];
 $from = $_REQUEST['from'];

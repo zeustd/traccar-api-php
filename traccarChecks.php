@@ -2,7 +2,7 @@
 
 $cookie = $_GET['cookie'];
 
-$t=traccar::checkLogin($cookie);
+$t=traccar::session($cookie);
 
 if($t->responseCode=='200') {
 	
