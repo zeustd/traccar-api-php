@@ -18,22 +18,14 @@
 class traccarTime {
 
     public static function toIso($time, $timeZone) {
-        
-    $time = strtotime($time);
-        
-    $dateInLocal = date("Y-m-d H:i:s", $time);
-        
-    $dt = new DateTime($dateInLocal, new DateTimeZone($timeZone));
-        
-    $dt->setTimezone(new DateTimeZone('UTC'));
-        
-    $utcTime = $dt->format('Y-m-d H:i:s');
-
-    $returnObject = new DateTime($utcTime);
-    
-    $returnIso = substr($returnObject->format(DateTime::ATOM),0,-6).'.000Z';
-      
-    return $returnIso;
+        $time = strtotime($time);
+        $dateInLocal = date("Y-m-d H:i:s", $time);
+        $dt = new DateTime($dateInLocal, new DateTimeZone($timeZone));
+        $dt->setTimezone(new DateTimeZone('UTC'));
+        $utcTime = $dt->format('Y-m-d H:i:s');
+        $returnObject = new DateTime($utcTime);
+        $returnIso = substr($returnObject->format(DateTime::ATOM),0,-6).'.000Z';
+        return $returnIso;
     }
 
 }
