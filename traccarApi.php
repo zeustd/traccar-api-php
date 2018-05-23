@@ -1,6 +1,7 @@
 <?php
 
 class traccar {
+	
 public static $host='http://127.0.0.1:8082';
 private static $adminEmail='admin';
 private static $adminPassword='admin';
@@ -15,7 +16,7 @@ public static function loginAdmin() {
 }
 
 public static function addUser($cookie,$name,$email,$password, $attributes) {
-
+	
 	$id = '-1';
 	$name = $name;
 	$email = $email;
@@ -43,7 +44,7 @@ public static function addUser($cookie,$name,$email,$password, $attributes) {
 }
 
 public static function updateUser($cookie,$id,$name,$email,$password,$attributes) {
-
+	
 	$id = $id;
 	$name = $name;
 	$email = $email;
@@ -74,7 +75,7 @@ public static function updateUser($cookie,$id,$name,$email,$password,$attributes
 }
 
 public static function addDevice($cookie,$name,$uniqueId,$phone,$model,$category,$attributes) {
-
+	
 	$id = '-1';
 	$attributes = $attributes;
 
@@ -85,7 +86,7 @@ public static function addDevice($cookie,$name,$uniqueId,$phone,$model,$category
 }
 
 public static function assignUserDevice($cookie,$userId,$deviceId) {
-
+	
 	$data='{"userId":"'.$userId.'","deviceId":'.$deviceId.'}';
 
 	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
@@ -326,6 +327,7 @@ public static function curl($task,$method,$cookie,$data,$header) {
 	curl_close($ch);
 	return $res;
 	}
+	
 }
 
 //DistanceUnits
