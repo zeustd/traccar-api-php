@@ -1,4 +1,5 @@
 <?php
+
 include('incPostLogin.php');
 
 $deviceId = $_REQUEST['deviceId'];
@@ -18,13 +19,7 @@ if($positions->responseCode=='200') {
 	$out['sessionResponse'] = $sessionResponse;
 	$out['sessionResponseCode'] = $sessionResponseCode;
 	$out['response'] = $positionsArray;
-	
-	
-	//$out['response']['computedSpeed'] = $positionsArray[1]['protocol'];
-	
 	$rows[] = $out;
-	
-
 }else{
 	$out['apiResponse'] = 'error';
 	$out['apiresponseCode'] = $positions->responseCode;
@@ -32,11 +27,9 @@ if($positions->responseCode=='200') {
 	$out['sessionResponseCode'] = $sessionResponseCode;
 	$out['response'] = $positions->response;
 	$rows[] = $out;
-	
-
 }
 
-	$results = array('data' => $rows);
-	echo json_encode($results);
+$results = array('data' => $rows);
+echo json_encode($results);
 
 ?>
