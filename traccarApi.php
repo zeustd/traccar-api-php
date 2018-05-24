@@ -3,11 +3,11 @@
 class traccar {
 	
 public static $host='http://127.0.0.1:8082';
+public static $cookie;
 private static $adminEmail='admin';
 private static $adminPassword='admin';
-public static $cookie;
-private static $jsona='Accept: application/json';
-private static $json='Content-Type: application/json';
+private static $jsonA='Accept: application/json';
+private static $jsonC='Content-Type: application/json';
 private static $urlencoded='Content-Type: application/x-www-form-urlencoded';
 
 public static function loginAdmin() {
@@ -40,7 +40,7 @@ public static function addUser($cookie,$name,$email,$password, $attributes) {
 
 	$data='{"id":"'.$id.'","name":"'.$name.'","email":"'.$email.'","readonly":"'.$readonly.'","admin":"'.$admin.'","map":"'.$map.'","latitude":"'.$latitude.'","longitude":"'.$longitude.'","zoom":"'.$zoom.'","password":"'.$password.'","twelveHourFormat":"'.$twelveHourFormat.'","coordinateFormat":"'.$coordinateFormat.'","disabled":"'.$disabled.'","expirationTime":"'.$expirationTime.'","deviceLimit":"'.$deviceLimit.'","userLimit":"'.$userLimit.'","deviceReadonly":"'.$deviceReadonly.'","limitCommands":"'.$limitCommands.'","token":"'.$token.'","attributes":'.$attributes.'}';
 
-	return self::curl('/api/users','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/users','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function updateUser($cookie,$id,$name,$email,$password,$attributes) {
@@ -71,7 +71,7 @@ public static function updateUser($cookie,$id,$name,$email,$password,$attributes
 
 	$data='{"id":"'.$id.'","name":"'.$name.'","email":"'.$email.'","admin":"'.$admin.'","coordinateFormat":"'.$coordinateFormat.'","deviceLimit":"'.$deviceLimit.'","deviceReadonly":"'.$deviceReadonly.'","disabled":"'.$disabled.'","expirationTime":"'.$expirationTime.'","latitude":"'.$latitude.'","limitCommands":"'.$limitCommands.'","login":"'.$login.'","longitude":"'.$longitude.'","map":"'.$map.'","phone":"'.$phone.'","poiLayer":"'.$poiLayer.'","readonly":"'.$readonly.'","token":"'.$token.'","twelveHourFormat":"'.$twelveHourFormat.'","userLimit":"'.$userLimit.'","zoom":"'.$zoom.'","password":"'.$password.'","attributes":'.$attributes.'}';
 
-	return self::curl('/api/users/'.$id,'PUT',$cookie ,$data,array(self::$json));
+	return self::curl('/api/users/'.$id,'PUT',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function addDevice($cookie,$name,$uniqueId,$phone,$model,$category,$attributes) {
@@ -82,21 +82,21 @@ public static function addDevice($cookie,$name,$uniqueId,$phone,$model,$category
 	$data='{"id":"'.$id.'","name":"'.$name.'","uniqueId":"'.$uniqueId.'","phone":"'.$phone.'","model":"'.$model.'","category":"'.$category.'","attributes":'.$attributes.'}';
 
 
-	return self::curl('/api/devices','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/devices','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function assignUserDevice($cookie,$userId,$deviceId) {
 	
 	$data='{"userId":"'.$userId.'","deviceId":'.$deviceId.'}';
 
-	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteUserDevice($cookie,$userId,$deviceId) {
 	
 	$data='{"userId":"'.$userId.'","deviceId":'.$deviceId.'}';
 
-	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function server() {
@@ -130,21 +130,21 @@ public static function addGroups($cookie,$name,$groupId,$attributes) {
 
 	 $data='{"id":-1,"name":"'.$name.'","groupId":"'.$groupId.'","attributes":'.$attributes.'}';
 
-	return self::curl('/api/groups','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/groups','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function updateGroups($cookie,$id,$name,$groupId,$attributes) {
 	
 	$data='{"id":"'.$id.'","name":"'.$name.'","groupId":"'.$groupId.'","attributes":'.$attributes.'}';
 	
-	return self::curl('/api/groups/'.$id,'PUT',$cookie ,$data,array(self::$json));
+	return self::curl('/api/groups/'.$id,'PUT',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteGroups($cookie,$id) {
 	
 	$data='{"id":"'.$id.'}';
 
-	return self::curl('/api/groups/'.$id,'DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/groups/'.$id,'DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function drivers($cookie) {
@@ -156,21 +156,21 @@ public static function addDrivers($cookie,$name,$uniqueId,$attributes) {
 
 	 $data='{"id":-1,"name":"'.$name.'","uniqueId":"'.$uniqueId.'","attributes":'.$attributes.'}';
 
-	return self::curl('/api/drivers','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/drivers','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function updateDrivers($cookie,$id,$name,$uniqueId,$attributes) {
 	
 	$data='{"id":"'.$id.'","name":"'.$name.'","uniqueId":"'.$uniqueId.'","attributes":'.$attributes.'}';
 	
-	return self::curl('/api/drivers/'.$id,'PUT',$cookie ,$data,array(self::$json));
+	return self::curl('/api/drivers/'.$id,'PUT',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteDrivers($cookie,$id) {
 	
 	$data='{"id":"'.$id.'}';
 
-	return self::curl('/api/drivers/'.$id,'DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/drivers/'.$id,'DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function geofences($cookie) {
@@ -217,49 +217,49 @@ public static function updateDevice($cookie,$id,$name,$uniqueId,$phone,$category
 	
 	$data='{"id":"'.$id.'","name":"'.$name.'","uniqueId":"'.$uniqueId.'","phone":"'.$phone.'","category":"'.$category.'","model":"'.$model.'","contact":"'.$contact.'","lastUpdate":"'.$lastUpdate.'","geofenceId":"'.$geofenceId.'","groupId":"'.$groupId.'","disabled":"'.$disabled.'","attributes":'.$attributes.'}';
 	
-	return self::curl('/api/devices/'.$id,'PUT',$cookie ,$data,array(self::$json));
+	return self::curl('/api/devices/'.$id,'PUT',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function assignDeviceGeofence($cookie,$deviceId,$geofenceId) {
 
 	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
 
-	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteDeviceGeofence($cookie,$deviceId,$geofenceId) {
 	
 	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
 
-	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function assignDeviceGroup($cookie,$deviceId,$groupId) {
 
 	$data='{"deviceId":"'.$deviceId.'","groupId":'.$groupId.'}';
 
-	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteDeviceGroup($cookie,$deviceId,$groupId) {
 	
 	$data='{"deviceId":"'.$deviceId.'","groupId":'.$groupId.'}';
 
-	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function assignDeviceDriver($cookie,$deviceId,$driverId) {
 
 	$data='{"deviceId":"'.$deviceId.'","driverId":'.$driverId.'}';
 
-	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function deleteDeviceDriver($cookie,$deviceId,$driverId) {
 	
 	$data='{"deviceId":"'.$deviceId.'","driverId":'.$driverId.'}';
 
-	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$json));
+	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$jsonC));
 }
 
 public static function positions($deviceId,$from,$to,$id,$cookie) {
