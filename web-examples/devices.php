@@ -38,9 +38,7 @@ if ($action == 'get') {
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
-	$results = array(
-		'data' => $rows
-	);
+	$results = array('data' => $rows);
 	echo json_encode($results);
 }
 
@@ -65,9 +63,7 @@ if ($action == 'edit') {
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
-	$results = array(
-		'data' => $rows
-	);
+	$results = array('data' => $rows);
 	echo json_encode($results);
 }
 
