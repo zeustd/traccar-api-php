@@ -1,6 +1,5 @@
 <?php
-
-include('incPostLogin.php');
+include ('incPostLogin.php');
 
 $deviceId = $_REQUEST['deviceId'];
 $fromTime = $_REQUEST['from'];
@@ -9,20 +8,20 @@ $timeZone = $_REQUEST['timeZone'];
 $from = traccarTime::toIso($fromTime, $timeZone);
 $to = traccarTime::toIso($toTime, $timeZone);
 
-$reportTrips=traccar::reportTrips($deviceId,$from,$to,$cookie);
+$reportTrips = traccar::reportTrips($deviceId, $from, $to, $cookie);
 
 $rows = array();
 
-if($reportTrips->responseCode=='200') {
+if ($reportTrips->responseCode == '200') {
 	$response = $reportTrips->response;
-	$reportTripsArray = json_decode($response,true);
+	$reportTripsArray = json_decode($response, true);
 	$out['apiResponse'] = 'ok';
 	$out['apiResponseCode'] = $reportTrips->responseCode;
 	$out['sessionResponse'] = $sessionResponse;
 	$out['sessionResponseCode'] = $sessionResponseCode;
 	$out['response'] = $reportTripsArray;
 	$rows[] = $out;
-}else{
+} else {
 	$out['apiResponse'] = 'error';
 	$out['apiresponseCode'] = $reportTrips->responseCode;
 	$out['sessionResponse'] = $sessionResponse;
