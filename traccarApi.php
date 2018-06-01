@@ -316,8 +316,7 @@ class traccar {
 
 		if (!curl_errno($ch)) {
 			$res->responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-		}
-		else {
+		} else {
 			$res->responseCode = 400;
 			$res->error = curl_error($ch);
 		}
