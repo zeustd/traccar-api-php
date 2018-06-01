@@ -12,7 +12,7 @@ if ($server->responseCode == '200') {
 	$out['apiResponseCode'] = $server->responseCode;
 	$out['response'] = $serverArray;
 	$rows[] = $out;
-}else {
+} else {
 	$out['apiResponse'] = 'error';
 	$out['apiresponseCode'] = $server->responseCode;
 	$out['response'] = $server->response;
