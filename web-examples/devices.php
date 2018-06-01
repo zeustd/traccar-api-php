@@ -29,8 +29,7 @@ if ($action == 'get') {
 		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
-	}
-	else {
+	} else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
@@ -54,8 +53,7 @@ if ($action == 'edit') {
 		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
-	}
-	else {
+	} else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
