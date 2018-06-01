@@ -1,19 +1,18 @@
 <?php
+include ('includePostLogin.php');
 
-include('includePostLogin.php');
-
-$server=traccar::server();
+$server = traccar::server();
 
 $rows = array();
 
-if($server->responseCode=='200') {
+if ($server->responseCode == '200') {
 	$response = $server->response;
-	$serverArray = json_decode($response,true);
+	$serverArray = json_decode($response, true);
 	$out['apiResponse'] = 'ok';
 	$out['apiResponseCode'] = $server->responseCode;
 	$out['response'] = $serverArray;
 	$rows[] = $out;
-}else{
+}else {
 	$out['apiResponse'] = 'error';
 	$out['apiresponseCode'] = $server->responseCode;
 	$out['response'] = $server->response;
