@@ -1,6 +1,5 @@
 <?php
-
-include('incPostLogin.php');
+include ('incPostLogin.php');
 
 $id = $_REQUEST['id'];
 $action = $_REQUEST['action'];
@@ -18,19 +17,20 @@ $attributes = '{}';
 $positionId = $_REQUEST['positionId'];
 $status = $_REQUEST['status'];
 
-if($action=='get'){
-	$positions=traccar::devices($cookie);
+if ($action == 'get') {
+	$positions = traccar::devices($cookie);
 	$rows = array();
-	if($positions->responseCode=='200') {
+	if ($positions->responseCode == '200') {
 		$response = $positions->response;
-		$positionsArray = json_decode($response,true);
+		$positionsArray = json_decode($response, true);
 		$out['apiResponse'] = 'ok';
 		$out['apiResponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
 		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
-	}else{
+	}
+	else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
@@ -38,23 +38,26 @@ if($action=='get'){
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
-	$results = array('data' => $rows);
+	$results = array(
+		'data' => $rows
+	);
 	echo json_encode($results);
 }
 
-if($action=='edit'){
-	$positions=traccar::updateDevice($cookie,$id,$name,$uniqueId,$phone,$category,$model,$contact,$lastUpdate,$geofenceIds,$groupId,$disabled,$attributes);
+if ($action == 'edit') {
+	$positions = traccar::updateDevice($cookie, $id, $name, $uniqueId, $phone, $category, $model, $contact, $lastUpdate, $geofenceIds, $groupId, $disabled, $attributes);
 	$rows = array();
-	if($positions->responseCode=='200') {
+	if ($positions->responseCode == '200') {
 		$response = $positions->response;
-		$positionsArray = json_decode($response,true);
+		$positionsArray = json_decode($response, true);
 		$out['apiResponse'] = 'ok';
 		$out['apiResponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
 		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
-	}else{
+	}
+	else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
 		$out['sessionResponse'] = $sessionResponse;
@@ -62,7 +65,9 @@ if($action=='edit'){
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
-	$results = array('data' => $rows);
+	$results = array(
+		'data' => $rows
+	);
 	echo json_encode($results);
 }
 
