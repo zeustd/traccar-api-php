@@ -15,17 +15,11 @@ $rows = array();
 if ($reportTrips->responseCode == '200') {
 	$response = $reportTrips->response;
 	$reportTripsArray = json_decode($response, true);
-	$out['apiResponse'] = 'ok';
 	$out['apiResponseCode'] = $reportTrips->responseCode;
-	$out['sessionResponse'] = $sessionResponse;
-	$out['sessionResponseCode'] = $sessionResponseCode;
 	$out['response'] = $reportTripsArray;
 	$rows[] = $out;
 } else {
-	$out['apiResponse'] = 'error';
 	$out['apiresponseCode'] = $reportTrips->responseCode;
-	$out['sessionResponse'] = $sessionResponse;
-	$out['sessionResponseCode'] = $sessionResponseCode;
 	$out['response'] = $reportTrips->response;
 	$rows[] = $out;
 }
