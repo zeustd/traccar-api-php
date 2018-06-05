@@ -23,17 +23,12 @@ if ($action == 'get') {
 	if ($positions->responseCode == '200') {
 		$response = $positions->response;
 		$positionsArray = json_decode($response, true);
-		$out['apiResponse'] = 'ok';
 		$out['apiResponseCode'] = $positions->responseCode;
-		$out['sessionResponse'] = $sessionResponse;
-		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
 	} else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
-		$out['sessionResponse'] = $sessionResponse;
-		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
@@ -49,15 +44,11 @@ if ($action == 'edit') {
 		$positionsArray = json_decode($response, true);
 		$out['apiResponse'] = 'ok';
 		$out['apiResponseCode'] = $positions->responseCode;
-		$out['sessionResponse'] = $sessionResponse;
-		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positionsArray;
 		$rows[] = $out;
 	} else {
 		$out['apiResponse'] = 'error';
 		$out['apiresponseCode'] = $positions->responseCode;
-		$out['sessionResponse'] = $sessionResponse;
-		$out['sessionResponseCode'] = $sessionResponseCode;
 		$out['response'] = $positions->response;
 		$rows[] = $out;
 	}
