@@ -175,6 +175,20 @@ class traccar {
 
 		return self::curl('/api/geofences?' . $data, 'GET', $cookie, '', array());
 	}
+	
+	public static function assignDeviceGeofence($cookie, $deviceId, $geofenceId) {
+
+	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
+
+	return self::curl('/api/permissions','POST',$cookie ,$data,array(self::$json));
+	}
+
+	public static function removeDeviceGeofence($cookie, $deviceId, $geofenceId) {
+
+	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
+
+	return self::curl('/api/permissions','DELETE',$cookie ,$data,array(self::$json));
+	}
 
 	public static function calendars($cookie) {
 
