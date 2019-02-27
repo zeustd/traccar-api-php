@@ -11,7 +11,7 @@ private static $jsonC='Content-Type: application/json';
 private static $urlEncoded='Content-Type: application/x-www-form-urlencoded';
 
 //Server
-public static function serverGps(){
+public static function server(){
 	
 	return self::curl('/api/server?'.$data,'GET',$sessionId,'',array());
 }
