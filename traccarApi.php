@@ -149,6 +149,32 @@ public static function devices($sessionId,$id){
 	return self::curl('/api/devices?'.$data,'GET',$sessionId,'',array());
 }
 
+//Geofences & Routes
+public static function geofences($sessionId){
+	
+	return self::curl('/api/geofences?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function geofenceAdd($sessionId,$name,$description,$area,$attributes){
+	
+	$id = '-1';
+	$attributes = $attributes;
+
+	$data='{"id":"'.$id.'","name":"'.$name.'","description":"'.$description.'","area":"'.$area.'","attributes":'.$attributes.'}';
+
+	return self::curl('/api/geofences','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function geofenceUpdate($sessionId,$id,$name,$description,$area,$attributes){
+
+	$id = $id;
+	$attributes = $attributes;
+
+	$data='{"id":"'.$id.'","name":"'.$name.'","description":"'.$description.'","area":"'.$area.'","attributes":'.$attributes.'}';
+
+	return self::curl('/api/geofences/'.$id,'PUT',$sessionId,$data,array(self::$jsonC));
+}
+
 //Notifications
 public static function notificationsTypes($sessionId){
 	
