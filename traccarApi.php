@@ -148,7 +148,91 @@ public static function devices($sessionId,$id){
 	
 	return self::curl('/api/devices?'.$data,'GET',$sessionId,'',array());
 }
+
+//Notifications
+public static function notificationsTypes($sessionId){
 	
+	return self::curl('/api/notifications/types?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function notifications($sessionId){
+	
+	return self::curl('/api/notifications?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function notificationAdd($sessionId,$type,$always,$notificators,$attributes){
+	
+	$id = '-1';
+	$attributes = $attributes;
+
+	$data='{"id":"'.$id.'","type":"'.$type.'","always":"'.$always.'","notificators":"'.$notificators.'","attributes":'.$attributes.'}';
+
+	return self::curl('/api/notifications','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function notificationUpdate($sessionId,$id,$type,$always,$notificators,$attributes){
+
+	$id = $id;
+	$attributes = $attributes;
+
+	$data='{"id":"'.$id.'","type":"'.$type.'","always":"'.$always.'","notificators":"'.$notificators.'","attributes":'.$attributes.'}';
+
+	return self::curl('/api/notifications/'.$id,'PUT',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function notificationDelete($sessionId,$id){
+
+	return self::curl('/api/notifications/'.$id,'DELETE',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function notificationTest($sessionId){
+
+	return self::curl('/api/notifications/test','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+//Permissions
+public static function assignUserDevice($sessionId,$userId,$deviceId){
+	
+	$data='{"userId":"'.$userId.'","deviceId":'.$deviceId.'}';
+	
+	return self::curl('/api/permissions','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function removeUserDevice($sessionId,$userId,$deviceId){
+	
+	$data='{"userId":"'.$userId.'","deviceId":'.$deviceId.'}';
+	
+	return self::curl('/api/permissions','DELETE',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function assignDeviceGeofence($sessionId,$deviceId,$geofenceId){
+	
+	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
+	
+	return self::curl('/api/permissions','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function removeDeviceGeofence($sessionId,$deviceId,$geofenceId){
+	
+	$data='{"deviceId":"'.$deviceId.'","geofenceId":'.$geofenceId.'}';
+	
+	return self::curl('/api/permissions','DELETE',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function assignDeviceNotification($sessionId,$deviceId,$notificationId){
+	
+	$data='{"deviceId":"'.$deviceId.'","notificationId":'.$notificationId.'}';
+	
+	return self::curl('/api/permissions','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function removeDeviceNotification($sessionId,$deviceId,$notificationId){
+	
+	$data='{"deviceId":"'.$deviceId.'","notificationId":'.$notificationId.'}';
+	
+	return self::curl('/api/permissions','DELETE',$sessionId,$data,array(self::$jsonC));
+}
+
 //curl	
 public static function curl($task,$method,$cookie,$data,$header) {
 	
