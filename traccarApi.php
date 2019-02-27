@@ -10,6 +10,12 @@ private static $jsonA='Accept: application/json';
 private static $jsonC='Content-Type: application/json';
 private static $urlEncoded='Content-Type: application/x-www-form-urlencoded';
 
+//Server
+public static function serverGps(){
+	
+	return self::curl('/api/server?'.$data,'GET',$sessionId,'',array());
+}
+
 //Session
 public static function loginAdmin(){
 	
