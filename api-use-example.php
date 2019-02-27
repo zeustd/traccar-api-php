@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 include('traccarApi.php');
 
-$a = gps::serverGps();
+$a = gps::server();
 echo $response = $a->response;
 echo $responseCode = $a->responseCode;
 ?>
