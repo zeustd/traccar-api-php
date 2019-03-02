@@ -11,41 +11,41 @@ Traccar Server & API Version : 4.3 Supported
 - Traccar API : https://www.traccar.org/api-reference/
 
 # Features Implemented
-*Server
+**Server**
 - server (server configurationgs)
 
-*Session
+**Session**
 - loginAdmin (login as admin)
 - login (login as any user)
 - logout (logout / destroy a user session)
 - session (check a users session or users account details)
 
-*User
+**User**
 - users (list all user accounts under the currently logged in user)
 - userAdd (add / register a user account)
 - userUpdate (update a user account)
 - userDelete (delete a user account)
 
-*Device
+**Device**
 - devices (list all devices under the currently logged in user)
 - deviceAdd (add a device)
 - deviceUpdate (update a device)
 - deviceDelete (delete a device)
 
-*Geofence
+**Geofence**
 - geofences (list all geofences under the currently logged in user)
 - gefeonceAdd (create a geofence)
 - geofenceUpdate (update a geofence)
 - geofenceDelete (delete a geofence)
 
-*Notification
+**Notification**
 - notificationsTypes (list all notifications types available)
 - notifications (list all users enabled notifications)
 - notificationAdd (create  notification for user)
 - notificationUpdate (update notification)
 - notificationDelete (delete notification)
 
-*Permission
+**Permission**
 - assignUserDevice (assing a device to a user account)
 - removeUserDevice (remove a device from a user account)
 - assignDeviceGeofence (assign a geofence to a device)
@@ -53,11 +53,11 @@ Traccar Server & API Version : 4.3 Supported
 - assignDeviceNotification (assign a notification to device)
 - removeDeviceNotification (remove a notification from device)
 
-*Position
+**Position**
 - positions (display recent positions of all devices under the logged in user)
 - position (display a single position based in positionId)
 
-*Report
+**Report**
 - reportSummary (summary report)
 - reportTrips (trips report)
 - reportStops (stops report)
@@ -66,7 +66,7 @@ Traccar Server & API Version : 4.3 Supported
 - reportChart (same as route report, but can be modified for specifics in future)
 - reportEventsType (specific event type report)
 
-*Command
+**Command**
 - commandsTypes (list of all available commands for the device)
 - commandSend (send command to a device)
 
