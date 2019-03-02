@@ -17,7 +17,7 @@ Traccar Server & API Version : 4.3 Supported (Currently checked to be working wi
 
 # Features Implemented
 **Server**
-- server (server configurationgs)
+- server (server configurations)
 
 **Session**
 - loginAdmin (login as admin)
@@ -90,4 +90,4 @@ All codes/examples are being provided here for free by www.yodiyil.com
 
 * We have a fully functional list of all API functions for Traccar, of which we have shared few of the basic functionailities required to get started with PHP based implementation of Traccar API. For customizations please Raise a Request here on Github under Issues.
 
-* Contributions and Pull Requests are most welcome and will be given due credit.
+* Contributions to the code are most welcome and will be given due credit.
