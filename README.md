@@ -1,14 +1,16 @@
 # traccar-api-php (Traccar API usage with PHP)
 
-Note : New version and changes to API will be implemented in the coming weeks starting October 2018, which will include better examples and better integrations.
-
 Use traccar api with php, using this easy to understand implementation in php. All features provided by Traccar in version 3.15 and later will be supported.
 
-Traccar Server & API Version : 4.3 Supported
+Traccar Server & API Version : 4.3 Supported (Currently checked to be working with)
 
 # About Traccar
 - web: www.traccar.org
 - Traccar API : https://www.traccar.org/api-reference/
+
+# About author of This repositiory and code
+- name : James
+- web: www.yodiyil.com
 
 # Features Implemented
 **Server**
