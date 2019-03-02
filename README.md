@@ -83,6 +83,6 @@ Traccar Server & API Version : 4.3 Supported
 
 All codes/examples are being provided here for free by www.yodiyil.com
 
-* We have a fully functional list of all API functions for Traccar, however we are re-working on the codes and improving them to accomodate new changes that has been implemented in Traccar. And also to be in line with our intentions to launch sample UI Interfaces by Mid March 2018.
+* We have a fully functional list of all API functions for Traccar, of which we have shared few of the basic functionailities required to get started with PHP based implementation of Traccar API. For customizations please Raise a Request here on Github under Issues.
 
 * Contributions and Pull Requests are most welcome and will be given due credit.
