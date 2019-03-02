@@ -10,11 +10,13 @@ private static $jsonA='Accept: application/json';
 private static $jsonC='Content-Type: application/json';
 private static $urlEncoded='Content-Type: application/x-www-form-urlencoded';
 
+
 //Server
 public static function server(){
 	
 	return self::curl('/api/server?'.$data,'GET',$sessionId,'',array());
 }
+
 
 //Session
 public static function loginAdmin(){
@@ -41,6 +43,15 @@ public static function session($sessionId){
 
 
 //users
+public static function users($sessionId,$id){
+	
+	if($id != ''){
+		$data='userId='.$id;
+	}
+	
+	return self::curl('/api/users?'.$data,'GET',$sessionId,'',array());
+}
+
 public static function userAdd($sessionId,$name,$email,$password,$attributes){
 	
 	$id = '-1';
@@ -105,16 +116,16 @@ public static function userDelete($sessionId,$id){
 	return self::curl('/api/users/'.$id,'DELETE',$sessionId,$data,array(self::$jsonC));
 }
 
-public static function users($sessionId,$id){
+//Devices
+public static function devices($sessionId,$id){
 	
 	if($id != ''){
-		$data='userId='.$id;
+		$data='id='.$id;
 	}
 	
-	return self::curl('/api/users?'.$data,'GET',$sessionId,'',array());
+	return self::curl('/api/devices?'.$data,'GET',$sessionId,'',array());
 }
 
-//Devices
 public static function deviceAdd($sessionId,$name,$uniqueId,$phone,$model,$category,$attributes){
 	
 	$id = '-1';
@@ -138,15 +149,6 @@ public static function deviceUpdate($sessionId,$id,$name,$uniqueId,$phone,$model
 public static function deviceDelete($sessionId,$id){
 
 	return self::curl('/api/devices/'.$id,'DELETE',$sessionId,$data,array(self::$jsonC));
-}
-
-public static function devices($sessionId,$id){
-	
-	if($id != ''){
-		$data='id='.$id;
-	}
-	
-	return self::curl('/api/devices?'.$data,'GET',$sessionId,'',array());
 }
 
 //Geofences & Routes
@@ -173,6 +175,11 @@ public static function geofenceUpdate($sessionId,$id,$name,$description,$area,$a
 	$data='{"id":"'.$id.'","name":"'.$name.'","description":"'.$description.'","area":"'.$area.'","attributes":'.$attributes.'}';
 
 	return self::curl('/api/geofences/'.$id,'PUT',$sessionId,$data,array(self::$jsonC));
+}
+
+public static function geofenceDelete($sessionId,$id){
+
+	return self::curl('/api/geofences/'.$id,'DELETE',$sessionId,$data,array(self::$jsonC));
 }
 
 //Notifications
@@ -259,6 +266,89 @@ public static function removeDeviceNotification($sessionId,$deviceId,$notificati
 	return self::curl('/api/permissions','DELETE',$sessionId,$data,array(self::$jsonC));
 }
 
+//Positions
+public static function positions($sessionId){
+	
+	return self::curl('/api/positions?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function position($sessionId,$id){
+	
+	$data='id='.$id;
+	
+	return self::curl('/api/positions?'.$data,'GET',$sessionId,'',array());
+}
+
+//Reports
+public static function reportSummary($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/summary?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportTrips($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/trips?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportStops($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/stops?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportRoute($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/route?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportEvents($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/events?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportChart($sessionId,$deviceId,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to;
+	
+	return self::curl('/api/reports/route?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function reportEventsType($sessionId,$deviceId,$type,$from,$to){
+	
+	$data='deviceId='.$deviceId.'&from='.$from.'&to='.$to.'&type='.$type;
+	
+	return self::curl('/api/reports/events?'.$data,'GET',$sessionId,'',array());
+}
+
+//Commands
+public static function commandsTypes($sessionId,$deviceId){
+	
+	$data='deviceId='.$deviceId;
+	
+	return self::curl('/api/commands/types?'.$data,'GET',$sessionId,'',array());
+}
+
+public static function commandSend($sessionId,$deviceId,$type,$attributes){
+	
+	$id = '0';
+	$description = 'true';
+	$textChannel = 'false';
+
+	$data='{"type":"'.$type.'","deviceId":"'.$deviceId.'","attributes":'.$attributes.',"description":'.$description.'}';
+
+	return self::curl('/api/commands/send','POST',$sessionId,$data,array(self::$jsonC));
+}
+
+	
 //curl	
 public static function curl($task,$method,$cookie,$data,$header) {
 	
