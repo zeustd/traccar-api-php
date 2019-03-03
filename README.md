@@ -8,7 +8,7 @@ Traccar Server & API Version : 4.3 Supported (Currently checked to be working wi
 
 # About author of This repositiory and code
 - name : James
-- web: www.yodiyil.com
+- web: www.gpsguru.in
 
 # About Traccar
 - web: www.traccar.org
@@ -86,7 +86,7 @@ Traccar Server & API Version : 4.3 Supported (Currently checked to be working wi
 - Admin Device <-> User Allocation UI
 
 
-All codes/examples are being provided here for free by www.yodiyil.com
+All codes/examples are being provided here for free by www.gpsguru.in
 
 * We have a fully functional list of all API functions for Traccar, of which we have shared few of the basic functionailities required to get started with PHP based implementation of Traccar API. For customizations please Raise a Request here on Github under Issues.
 
