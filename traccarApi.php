@@ -52,6 +52,17 @@ public static function users($sessionId,$id){
 	return self::curl('/api/users?'.$data,'GET',$sessionId,'',array());
 }
 
+public static function signup($name,$email,$password){
+	
+	$name = $name;
+	$email = $email;
+	$password = $password;
+	
+	$data='{"name":"'.$name.'","email":"'.$email.'","password":"'.$password.'"}';
+
+	return self::curl('/api/users','POST','',$data,array(self::$jsonC));
+}	
+	
 public static function userAdd($sessionId,$name,$email,$password,$attributes){
 	
 	$id = '-1';
