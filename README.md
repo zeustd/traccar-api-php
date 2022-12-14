@@ -1,17 +1,17 @@
 # traccar-api-php (Traccar API usage with PHP)
 
-Use traccar api with php, using this easy to understand implementation in php. All features provided by Traccar in version 4.3 and later will be supported.
+This is a PHP class developed to interface with Traccar's API
+If you have a Traccar Instance and would like to have Native PHP based access to the API's you can use this project.
+This project will always remain free.
 
-Traccar Server & API Version : 4.3 Supported (Currently checked to be working with)
+Traccar Server & API Version : 4.3 Supported (not tested for Traccar v5.0 +)
 
-### Transfer of ownership due to lack of time and other commitments.
-Due to personal commitments and lack of time, I have collaborated with @zeustd and we have to an agreement to transfer ownership of this project to @zeustd.
+### Transfer of ownership/History:
+This project was setup in March of 2018 and operated by user @jaimzj
+The project is now owned and managed under the github account @zeust
+We are working towards refactoring the whole code and to add more support and features in the near future.
 
 ### Note: For all support and queries regarding this code, raise requests here on GitHub itself. 
-
-# About author of This repositiory and code
-- name : @zeustd
-
 
 # About Traccar
 - web: www.traccar.org
@@ -78,22 +78,8 @@ Due to personal commitments and lack of time, I have collaborated with @zeustd a
 - commandsTypes (list of all available commands for the device)
 - commandSend (send command to a device)
 
-#  To do list for future - user-interface
-- Map based tracking UI
-- Geo-Fence UI
-- Edit Device UI
-- Playback UI
-- Reports UI
-- Admin User Management UI
-- Admin Device Management UI
-- Admin Device <-> User Allocation UI
+### If you would like to contribute towards the improvement of this proejct, please do contact me or post a request under issues.
 
-
-All codes/examples are being provided here for free
-
-* We have a fully functional list of all API functions for Traccar, of which we have shared few of the basic functionailities required to get started with PHP based implementation of Traccar API. For customizations please Raise a Request here on Github under Issues.
-
-* Contributions to the code are most welcome and will be given due credit.
 
 ## Donations
 If you are considering donating to this project, I would like to thank you for the support.
