@@ -94,3 +94,23 @@ All codes/examples are being provided here for free
 * We have a fully functional list of all API functions for Traccar, of which we have shared few of the basic functionailities required to get started with PHP based implementation of Traccar API. For customizations please Raise a Request here on Github under Issues.
 
 * Contributions to the code are most welcome and will be given due credit.
+
+## Donations
+If you are considering donating to this project, I would like to thank you for the support.
+
+We have 2 options for donations, You can choose between the one time fixed value donation, where you can choose an amount of your choice or opt for the recurring donation which will be an automated monthly recurring donation of fixed value.
+
+### Recurring Donation: 
+Click [DONATE HERE](https://buy.stripe.com/4gw9BK5Z60HQ2WceUX) to donate monthly
+
+or scan
+
+<img src="https://user-images.githubusercontent.com/75146431/207718798-6178acb5-a4ae-4a5e-b537-1790d37fc778.png" width="150">
+
+
+### One Time Donation:
+Click [DONATE HERE](https://donate.stripe.com/3cs29i4V28ai2Wc6oq) to donate. 
+
+or scan
+
+<img src="https://user-images.githubusercontent.com/75146431/207718423-affaf484-0d93-4914-b7af-2624a88ecc56.png" width="150">
