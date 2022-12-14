@@ -1,11 +1,11 @@
 # traccar-api-php (Traccar API usage with PHP)
 
-## Transfer of ownership due to lack of time and other commitments.
-Due to personal commitments and lack of time, I have collaborated with @zeustd and we have to an agreement to transfer ownership of this project to @zeustd.
-
 Use traccar api with php, using this easy to understand implementation in php. All features provided by Traccar in version 4.3 and later will be supported.
 
 Traccar Server & API Version : 4.3 Supported (Currently checked to be working with)
+
+### Transfer of ownership due to lack of time and other commitments.
+Due to personal commitments and lack of time, I have collaborated with @zeustd and we have to an agreement to transfer ownership of this project to @zeustd.
 
 ### Note: For all support and queries regarding this code, raise requests here on GitHub itself. 
 
