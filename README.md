@@ -84,17 +84,6 @@ We are working towards refactoring the whole code and to add more support and fe
 ## Donations
 If you are considering donating to this project, I would like to thank you for the support.
 
-We have 2 options for donations, You can choose between the one time fixed value donation, where you can choose an amount of your choice or opt for the recurring donation which will be an automated monthly recurring donation of fixed value.
-
-### Recurring Donation: 
-Click [DONATE HERE](https://buy.stripe.com/4gw9BK5Z60HQ2WceUX) to donate monthly
-
-or scan
-
-<img src="https://user-images.githubusercontent.com/75146431/207718798-6178acb5-a4ae-4a5e-b537-1790d37fc778.png" width="150">
-
-
-### One Time Donation:
 Click [DONATE HERE](https://donate.stripe.com/3cs29i4V28ai2Wc6oq) to donate. 
 
 or scan
